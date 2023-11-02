@@ -5,15 +5,13 @@
   "main": "./src/index.js",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --mode development",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
-    "watch": "cross-env NODE_ENV=development webpack --mode development--watch",
     "start": "cross-env NODE_ENV=development webpack serve --mode development  --open",
+    "build": "cross-env NODE_ENV=production webpack --mode production",
     "stats": "cross-env NODE_ENV=bundle_analyzer webpack --mode production --json > stats.json && webpack-bundle-analyzer stats.json",
     "clean": "rd /s /q build"
   },
   "keywords": [
-    "js"
+    "js, react, webpack"
   ],
   "author": "Anton",
   "license": "ISC",
@@ -33,6 +31,7 @@
     "csv-loader": "^3.0.5",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.49.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-webpack-plugin": "^4.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",

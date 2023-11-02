@@ -4,8 +4,7 @@
     "requireConfigFile": false
   },
   "rules": {
-    "no-unused-vars": 0,
-    "no-mixed-spaces-and-tabs": 0
+    "react/react-in-jsx-scope": "off"
   },
   "env": {
     "es6": true,
@@ -13,6 +12,7 @@
     "node": true
   },
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:react/recommended"
   ]
 }
