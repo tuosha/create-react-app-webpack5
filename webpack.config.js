@@ -110,7 +110,7 @@ module.exports = {
 	},
 	devServer: {
 		historyApiFallback: true,
-		port: 3001,
+		port: 3000,
 		hot: true,
 		allowedHosts: ['all'],
 	},
