@@ -7,6 +7,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --mode development  --open",
     "build": "cross-env NODE_ENV=production webpack --mode production",
+    "eslint": "cross-env NODE_ENV=eslint_errors webpack serve --mode development  --open",
     "stats": "cross-env NODE_ENV=bundle_analyzer webpack --mode production --json > stats.json && webpack-bundle-analyzer stats.json",
     "clean": "rd /s /q build"
   },
@@ -21,7 +22,11 @@
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-react": "^7.22.15",
     "@types/node": "^20.6.1",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
     "@types/webpack": "^5.28.2",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
     "babel-loader": "^9.1.3",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
