@@ -1,4 +1,5 @@
 const path = require('path')
+const Dotenv = require('dotenv-webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -9,6 +10,7 @@ const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer')
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev
 const isBundleAnalyzer = process.env.NODE_ENV === 'bundle_analyzer'
+const isEslintErrors = process.env.NODE_ENV === 'eslint_errors'
 const fileName = ext => isDev ? `[name].${ext}` : `[name].[contenthash:8].${ext}`
 const cssLoaders = (loader) => {
 	const loaders = [{
@@ -53,8 +55,13 @@ const plugins = () => {
 	if (isBundleAnalyzer) {
 		basePlugins.push(new BundleAnalyzerPlugin())
 	}
-	if (isDev) {
-		basePlugins.push(new ESLintPlugin())
+	if (isEslintErrors) {
+		basePlugins.push(new ESLintPlugin({
+			extensions: ['js','jsx','ts','tsx']
+		}))
+	}
+	if (isDev || isEslintErrors) {
+		basePlugins.push(new Dotenv())
 	}
 	return basePlugins
 }
